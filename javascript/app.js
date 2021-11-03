@@ -1,63 +1,51 @@
-class Usuario {
-  constructor(nombre, apellido, edad, domicilio, password) {
-    (this.nombre = nombre),
-      (this.apellido = apellido),
-      (this.edad = edad),
-      (this.domicilio = domicilio),
-      (this.password = password);
-  }
-  saludar() {
-    console.log(`Hola, soy ${this.nombre} ${this.apellido} `);
+
+// let segundero=0
+// let inicio;
+
+// const playSegundero=()=>{
+//   console.log(segundero+=1)
+// }
+
+// const comienzo=()=>{
+//   inicio=setInterval(playSegundero, 1000)
+// }
+
+// const detener=()=>{
+//   clearInterval(inicio)
+//   segundero=0
+// }
+
+// setTimeout(()=>{
+// location.replace('https://google.com')
+// },3000)
+
+let titulo=document.querySelector('h1')
+let parrafito=document.querySelector('#parrafo')
+let textInput=document.querySelector('#inputText')
+
+// parrafito.innerHTML='Párrafo dinámico'
+
+let texto='Nota: del ejemplo anterior; El super()método se refiere a la clase principal. Al llamar al super()método en el método constructor, llamamos al método constructor del padre y obtenemos acceso a las propiedades y métodos del padre.'
+
+const mostrarText=()=>{
+
+  parrafito.innerHTML=texto
+
+}
+
+const ocultar=()=>{
+  parrafito.innerHTML=""
+}
+
+const cambiarTitulo=()=>{
+  if(textInput.value===''){
+    titulo.innerText='Hola mundo'
+  }else{
+
+    titulo.innerText=textInput.value
   }
 }
 
-const usuario1 = new Usuario(
-  "Pablo",
-  "Marino",
-  38,
-  { calle: "Av Jaldo 802", localidad: "Tafí Viejo" },
-  "mimamamemima"
-);
+// textInput.addEventListener('change',cambiarTitulo)
+textInput.addEventListener('keyup',cambiarTitulo)
 
-const usuario2 = new Usuario("Franco", "Vega", 25, "Thames 1.029", "soyuncapo");
-
-/*
-Cuenta bancaria
-2-Escribe un programa que cree un objeto "cuenta" con las siguientes propiedades:
-Una propiedad titular con el valor "Alex".
-Una propiedad saldo, teniendo como valor inicial 0.
-Un método ingresar() que permita añadir dinero a la cuenta, pasando la cantidad como parámetro
-Un método extraer() que permita retirar la cantidad pasada como parámetro.
-Un método informar() que retorne la información del estado de la cuenta. 
-Utiliza este metodo para mostrar la descripción, ingresar y extraer dinero y volver a mostrar la descripción del estado de la cuenta.
-
-*/
-
-class Cuenta {
-  constructor(titular, saldo = 0) {
-    (this.titular = titular), (this.saldo = saldo);
-  }
-
-  ingresar(valor) {
-    if (valor > 0) {
-      this.saldo += valor;
-      this.informar();
-    } else {
-      console.warn("El valor debe ser mayor que 0");
-    }
-  }
-
-  extraer(valor) {
-    this.saldo -= valor;
-    this.informar();
-  }
-
-  informar() {
-    console.log("=======Detalle de cuenta=======");
-    console.log(`Titular: ${this.titular}`);
-    console.log(`Saldo: ${this.saldo}`);
-    console.log("===============================");
-  }
-}
-
-const cuenta1 = new Cuenta("Alex");
